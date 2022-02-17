@@ -16,6 +16,7 @@ public class AddServlet extends HttpServlet {
 		int k = i + j;
 		System.out.println("result is " + k);
 		
+		git test
 		
 		try {
 			PrintWriter out = response.getWriter();
