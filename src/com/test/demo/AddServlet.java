@@ -20,6 +20,7 @@ public class AddServlet extends HttpServlet {
 		branch test
 		hh
 		브랜치 커밋은 오랜만...
+		test2
 		
 		try {
 			PrintWriter out = response.getWriter();
