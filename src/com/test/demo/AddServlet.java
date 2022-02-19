@@ -16,7 +16,6 @@ public class AddServlet extends HttpServlet {
 		int j = Integer.parseInt(request.getParameter("num2"));
 		
 		int k = i + j;
-		k = k*k;
 		
 		try {
 			/*
@@ -24,12 +23,13 @@ public class AddServlet extends HttpServlet {
 			out.println("result is " + k);
 			*/
 			// Request Dispatcher and Redirect
-			RequestDispatcher rd = request.getRequestDispatcher("square");
-			// request.setAttribute("k", k);
+			// RequestDispatcher rd = request.getRequestDispatcher("square");
 			
 			// Session Management
-			request.setAttribute("k", k);
-			rd.forward(request, response);
+			// request.setAttribute("k", k);
+			// rd.forward(request, response);
+			
+			response.sendRedirect("square?k="+k);		// URL Rewriting
 			
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
