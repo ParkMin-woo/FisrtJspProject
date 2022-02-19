@@ -15,10 +15,10 @@ public class AddServlet extends HttpServlet {
 		int j = Integer.parseInt(request.getParameter("num2"));
 		
 		int k = i + j;
-		System.out.println("result is " + k);
 		
 		try {
 			PrintWriter out = response.getWriter();
+			out.println("result is " + k);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
