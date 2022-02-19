@@ -13,7 +13,6 @@ public class AddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int i = Integer.parseInt(request.getParameter("num1"));
 		int j = Integer.parseInt(request.getParameter("num2"));
-		// 왜 master로 나옴???
 		
 		int k = i + j;
 		
