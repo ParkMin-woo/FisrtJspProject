@@ -19,7 +19,6 @@ public class AddServlet extends HttpServlet {
 		
 		try {
 			PrintWriter out = response.getWriter();
-			out.println("result is " + k);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
