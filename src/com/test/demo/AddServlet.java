@@ -28,7 +28,6 @@ public class AddServlet extends HttpServlet {
 			// Session Management
 			// request.setAttribute("k", k);
 			// rd.forward(request, response);
-			// 커밋 테스트
 			
 			response.sendRedirect("square?k="+k);		// URL Rewriting
 			
