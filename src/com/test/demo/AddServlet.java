@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 	@Override
@@ -29,7 +31,15 @@ public class AddServlet extends HttpServlet {
 			// request.setAttribute("k", k);
 			// rd.forward(request, response);
 			
-			response.sendRedirect("square?k="+k);		// URL Rewriting
+			// HttpSession Using
+			// HttpSession session = request.getSession();
+			// session.setAttribute("k", k);
+			
+			// Cookie
+			Cookie cookie = new Cookie("k" , k+"");
+			response.addCookie(cookie);
+			
+			response.sendRedirect("square");		// URL Rewriting
 			
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
