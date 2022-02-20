@@ -4,18 +4,36 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class SquareServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// RequestDispatcher·Î ´Ù¸¥ servlet¿¡¼­ ÀÌÀü servletÀÇ ÆÄ¶ó¹ÌÅÍ È£Ãâ ½Ã getAttribute »ç¿ë
+		// RequestDispatcherë¡œ ë‹¤ë¥¸ servletì—ì„œ ì´ì „ servletì˜ íŒŒë¼ë¯¸í„° í˜¸ì¶œ ì‹œ getAttribute ì‚¬ìš©
 		// int k = (int) req.getAttribute("k");
 		
-		// response.sendRedirect·Î ´Ù¸¥ servlet¿¡¼­ ÀÌÀü servletÀÇ ÆÄ¶ó¹ÌÅÍ È£Ãâ ½Ã getParameter »ç¿ë
-		int k = Integer.parseInt(req.getParameter("k"));
+		// response.sendRedirectë¡œ ë‹¤ë¥¸ servletì—ì„œ ì´ì „ servletì˜ íŒŒë¼ë¯¸í„° í˜¸ì¶œ ì‹œ getParameter ì‚¬ìš©
+		// int k = Integer.parseInt(req.getParameter("k"));
+		
+		// HttpSession ì´ìš©
+		// HttpSession session = req.getSession();
+		// session.removeAttribute("k");
+		// int k = (int) session.getAttribute("k");
+		
+		// Cookie ì´ìš©
+		int k = 0;
+		Cookie cookies[] = req.getCookies();
+		for(Cookie cookie : cookies) {
+			// k = cookie.getName();
+			if(cookie.getName().equals("k")) {
+				k = Integer.parseInt(cookie.getValue());
+			}
+		}
+		
 		k = k*k;
 		
 		PrintWriter out = resp.getWriter();
