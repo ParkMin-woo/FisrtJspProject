@@ -20,6 +20,7 @@ public class AddServlet extends HttpServlet {
 		int k = i + j;
 		
 		try {
+			// 테스트
 			/*
 			PrintWriter out = response.getWriter();
 			out.println("result is " + k);
