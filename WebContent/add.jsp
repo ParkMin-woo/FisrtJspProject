@@ -3,10 +3,6 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body bgcolor="yellow">
 
 	<%
@@ -15,7 +11,7 @@
 		
 		int k = i + j;
 	%>
-	
+	<br />
 	<%="result is " + k %>
 </body>
 </html>
