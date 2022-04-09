@@ -15,13 +15,14 @@
 	사원 주소 : <c:out value="${employee.empAddr}" /><br>
 	사원 나이 : <c:out value="${employee.empAge}" /> --%>
 	
-	<%-- <c:forEach var="employeeEle" items="${employeeList}">
+	<c:forEach var="employeeEle" items="${employeeList}">
 		사번 : <c:out value="${employeeEle.empNo}" /><br>
 		사원명 : <c:out value="${employeeEle.empName}" /><br>
 		사원 주소 : <c:out value="${employeeEle.empAddr}" /><br>
-		사원 나이 : <c:out value="${employeeEle.empAge}" />
-	</c:forEach> --%>
+		사원 나이 : <c:out value="${employeeEle.empAge}" /><br>
+		<h6>--------------------------------------------</h6>
+	</c:forEach>
 	<!-- java.lang.classnotfoundexception: javax.servlet.jsp.jstl.core.looptag -->
-	${employeeList}
+	<%-- ${employeeList} --%>
 </body>
 </html>
