@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +28,7 @@
 	<!-- java.lang.classnotfoundexception: javax.servlet.jsp.jstl.core.looptag -->
 	<%-- ${employeeList} --%>
 	
-	<sql:setDataSource var="db" driver="org.mariadb.jdbc.Driver" url="jdbc:mariadb://localhost:3306/test" user="temp1" password="1234" />
+	<%-- <sql:setDataSource var="db" driver="org.mariadb.jdbc.Driver" url="jdbc:mariadb://localhost:3306/test" user="temp1" password="1234" />
 	<sql:query var="rs" dataSource="${db}">
 		select * from emp_test_table
 	</sql:query>
@@ -36,7 +38,31 @@
 		empAddr : <c:out value="${emp.emp_addr}" /><br>
 		empAge : <c:out value="${emp.emp_age}" /><br>
 		<h6>--------------------------------------------</h6>
+	</c:forEach> --%>
+	
+	<c:set var="str" value="Minu is A IT Developer." />
+	length : ${fn:length(str)}<br>
+	<%-- value="${fn:split(list.ylpgTel,'-')}" --%>
+	<%-- split : ${fn:split(str , ' ')} --%>
+	<c:forEach var="s" items="${fn:split(str, ' ')}">
+		<c:out value="${s}" /><br>
 	</c:forEach>
+	index : ${fn:indexOf(str , "is")}<br>
+	IT contains : ${fn:contains(str , "IT")}<br>
+	JSP contains : ${fn:contains(str , "JSP")}<br>
+	<c:if test="${fn:contains(str , \"IT\")}">
+		str contains IT.<br>
+	</c:if>
+	<c:if test="${fn:contains(str , \"JSP\")}">
+		JSP contains IT.<br>
+	</c:if>
+	<c:if test="${fn:endsWith(str , \"IT\")}">
+		str endsWith IT.<br>
+	</c:if>
+	<c:if test="${fn:endsWith(str , \"Developer.\")}">
+		str endsWith Developer.<br>
+	</c:if>
+	toLowerCase : ${fn:toLowerCase(str)}
 	
 </body>
 </html>
