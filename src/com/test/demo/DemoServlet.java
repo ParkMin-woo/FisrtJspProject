@@ -20,6 +20,7 @@ public class DemoServlet extends HttpServlet {
 		
 		// String name = "Minu";
 		
+		/*
 		List<EmployeeVO> empList = new ArrayList<>();
 		EmployeeVO emp = new EmployeeVO();
 		// 1001 , 박민우, 경기도 안산시, 31
@@ -36,6 +37,7 @@ public class DemoServlet extends HttpServlet {
 		empList.add(emp);
 		// req.setAttribute("employee", emp);
 		req.setAttribute("employeeList", empList);
+		*/
 		
 		// req.setAttribute("label", name);
 		RequestDispatcher rd = req.getRequestDispatcher("display.jsp");
