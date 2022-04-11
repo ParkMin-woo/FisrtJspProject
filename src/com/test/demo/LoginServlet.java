@@ -38,9 +38,21 @@ public class LoginServlet extends HttpServlet {
 		
 		String userName = request.getParameter("userName");
 		String userPassword = request.getParameter("userPassword");
+		LoginDAO loginDAO = new LoginDAO();
 		
 		if(userName != null && userPassword != null) {
+			/*
 			if(userName.equals("mwpark0930") && userPassword.equals("learning")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("userName", userName);
+				session.setAttribute("userPassword", userPassword);
+				response.sendRedirect("welcome.jsp");
+			}
+			else {
+				response.sendRedirect("login.jsp");
+			}
+			*/
+			if(loginDAO.check(userName, userPassword)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("userName", userName);
 				session.setAttribute("userPassword", userPassword);
